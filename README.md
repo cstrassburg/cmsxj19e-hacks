@@ -1,100 +1,209 @@
-[![discord](https://img.shields.io/discord/713125176971231233?label=discord)](http://discord.gg/qggupzu)
+# Xiaomi imilab A1 Camera hacks (cmsxj19e - ipc019e)
 
-Stable: ![CI](https://github.com/cmiguelcabral/mjsxj05cm-hacks/workflows/CI/badge.svg?branch=master)
+!!! This project is currently under development and works only up to Frimware 3.8.5_0165 !!!
 
-Latest: ![CI](https://github.com/cmiguelcabral/mjsxj05cm-hacks/workflows/CI/badge.svg?tag=latest-rc)
-
-# Mi Camera Hacks (MJSXJ05CM)
-
-- [Supported Cameras](#supported-cameras)
-- [Features](#features)
-- [Install Instructions](#install-instructions)
-- [FAQ](#faq)
-- [These Guys are Awesome](#these-guys-are-awesome)
+Don't upgrade the camera to firmware 3.5.8_0166 !!! 
+On firmware 3.5.8_0166 Imilab changes the key and the bootloader, so you can not downgrade anymore and this scripts are not working.
 
 
-Keep calm and follow the procedure!
-
-Seriously now: it's still in beta, please read everything before continuing.
-
-## Supported Cameras
-For now this is it, I'm working on supporting more cameras.
+- [supported devices](#supported-devices)
+- [install instructions](#install)
+- [next steps](#next-steps)
+- [device information](#device-information)
+- [serial connection](#serial-connection)
+- [modifying firmware > 3.5.8_0165](#firmware-hack)
+- 
+## Supported devices
 
 Model Name(s) | Picture
 --- | ---
-MJSXJ05CM|![MJSXJ05CM](images/MJSXJ02CM.jpg)
+cmsxj19e|![cmsxj19e](images/cmsxj19e.jpg)
 
 
-## Features
-Feature | Latest | Stable
---- | --- | ---
-Motor Control | ![C/C++ CI](https://github.com/cmiguelcabral/mjsxj05cm-motor-control/workflows/C/C++%20CI/badge.svg?tag=latest-rc) | ![C/C++ CI](https://github.com/cmiguelcabral/mjsxj05cm-motor-control/workflows/C/C++%20CI/badge.svg?branch=master)
-Onvif Server | ![C/C++ CI](https://github.com/cmiguelcabral/mjsxj05cm-onvif_srvd/workflows/C/C++%20CI/badge.svg?tag=latest-rc) | ![C/C++ CI](https://github.com/cmiguelcabral/mjsxj05cm-onvif_srvd/workflows/C/C++%20CI/badge.svg?branch=master)
-RTSP Server | ![C/C++ CI](https://github.com/cmiguelcabral/mjsxj05cm-rtsp-server/workflows/C/C++%20CI/badge.svg?tag=latest-rc)| ![C/C++ CI](https://github.com/cmiguelcabral/mjsxj05cm-rtsp-server/workflows/C/C++%20CI/badge.svg?branch=master)
-Runit | ![C/C++ CI](https://github.com/telmomarques/runit/workflows/C/C++%20CI/badge.svg?tag=latest-rc) | ![C/C++ CI](https://github.com/telmomarques/runit/workflows/C/C++%20CI/badge.svg?branch=master)
-SFTP Server | ![C/C++ CI](https://github.com/telmomarques/openssh-portable/workflows/C/C++%20CI/badge.svg?tag=latest-rc) | ![C/C++ CI](https://github.com/telmomarques/openssh-portable/workflows/C/C++%20CI/badge.svg?branch=master)
-SSH Server |![C/C++ CI](https://github.com/telmomarques/dropbear/workflows/C/C++%20CI/badge.svg?tag=latest-rc)|![C/C++ CI](https://github.com/telmomarques/dropbear/workflows/C/C++%20CI/badge.svg?branch=master)
-Web Configuration Client | ![Node.js CI](https://github.com/cmiguelcabral/mjsxj05cm-web-client/workflows/Node.js%20CI/badge.svg?tag=latest-rc) | ![Node.js CI](https://github.com/cmiguelcabral/mjsxj05cm-web-client/workflows/Node.js%20CI/badge.svg?branch=master)
-Web Configuration Server | ![Go](https://github.com/cmiguelcabral/mjsxj05cm-web-server/workflows/Go/badge.svg?tag=latest-rc)| ![Go](https://github.com/cmiguelcabral/mjsxj05cm-web-server/workflows/Go/badge.svg?branch=master)
-Websocker Stream Server | ![Go](https://github.com/cmiguelcabral/mjsxj05cm-websocket-stream-server/workflows/Go/badge.svg?tag=latest-rc)| ![Go](https://github.com/cmiguelcabral/mjsxj05cm-websocket-stream-server/workflows/Go/badge.svg?branch=master)
+## Install
 
-## Install Instructions
-The hacks exploits a flaw in firmware version 3.4.2_0062, **please read the instructions very carefully!!**
+### With Mi Home App
 
-- First [Check your camera firmware version](#view-camera-firmware-version)
-
-- If you have firmware version 3.4.2_0062, go to [Install the hacks](#install-the-hacks)
-
-- If you have another firmware version, go to [Downgrade the Firmware](#downgrade-the-firmware)
-
-### View camera firmware version
 1. Configure the camera using the Mi Home app
-2. Open the camera in the app and touch the 3 dots in the upper right corner
-3. Select the option "General Settings", and then "Check for firmware upgrades"
-4. The current firmware version is presented on the screen
+2. copy the content of sdcard folder to a SD-Card, 
+3. insert the card into the cam and 
+4. power the camera on 
+5. telnet to the camera IP 
+6. login as "root", password "" 
+You are root!
 
-### Downgrade the Firmware
-**You will lose the camera configuration!**
+### Without Mi Home App
 
-⚠️ Please be careful!
+If you don't want to use the Mi Home App, you can install telnet/ash without a connection to the Mi servers. 
+You can use a new camera or one after a reset.
 
-⚠️ Do not power down the camera while flashing!
+1. Put the content of sdcard folder to a SD-Card
+2. Insert the card into the camera
+3. Power the camera on. 
+4. Wait until a voice speak to you
+5. Connect to the open AP with an notebook. You get an IP from the camera (192.168.14.10)
+6. Telnet to 192.168.14.1 
 
-⚠️ Make sure you understand all the steps before continuing!
+You are root!
 
-1. Grab tf_recovery.bin file from [here](https://github.com/telmomarques/xiaomi-360-1080p-hacks/raw/master/firmware/3.4.2_0062/tf_recovery.img).
-2. Put the file in the root of your SD Card (don't change the name!)
-3. Power down the camera and insert the SD Card
-4. Power on the camera and wait, the led will be a solid yellow while the firmware is flashing (this will take several minutes!)
-6. When the camera starts rotating and asking for the QR code, it's done.
-7. Go to ["Install the hacks"](#install-the-hacks) below.
+7. WiFi setup...
+ /mnt/sdcard/scripts/wifi_.sh
+8. 
+9. reboot
 
-### Install the hacks
-1. Configure the camera using the Mi Home app
-2. Download the latest release from [releases](https://github.com/telmomarques/xiaomi-360-1080p-hacks/releases)
-3. Copy the **contents** of "sdcard" folder to the root of your SD Card
-4. Power off the camera and insert the SD Card
-5. Power on the camera
-6. Find the IP address of your camera
-7. Open the web config interface o the camrea on your browser: [http://<your-camera-ip/](http://<your-camera-ip/)
 
-## FAQ
+## next steps
 
-### I can't downgrade the firmware, I follow the instructions but nothing happens.
-Thy another SD Card. This actually happens a lot, trying a different SD Card usually solves it.
+1. rtsp
+2. Motor driver 
+3. mount ext2fs on sd
+4. mount nfs 
+5. cut connection to mi servers
+6. solve problems with dropbear
 
-### The RTSP stream is corrupted / stops working after a while.
-The RTSP server is still in alpha stage.
+## Serial connection
 
-You may see some corrupted frames here and there, and the server may stop working after a few hours (restarting the camera solves it). We're working on it, but if a 100% stable video stream is **critical** for you, then it's still not ready.
 
-### I'm worried about security, can I create/modify the [hack] password?
 
-Security is in the roadmap, but still not the primary focus. Right now you'll have to secure the camera by making sure it's only accessible on your private network, and that your network is secure.
+[output 1](serial_output_1.txt)
 
-## These Guys are Awesome
-Huge thanks to everyone who contributed!
+## Firmware Hack
 
-[@aslafy-z](https://github.com/aslafy-z)
-[@crckmc](https://github.com/crckmc)
-[@thewh1teagle](https://github.com/thewh1teagle)
+If you have firmware version greater than 3.5.8_0165 you have to modify the firmware reading, changing and writing rhe flash rom directly.
+
+Imilab changes the key inside the firmware and signed it, so you can't downgrade the firmware and can't apply this scripts directy (for the moment).
+
+1. disassembly the camera
+2. read flash 
+3. modify flash
+4. write flash 
+5. test 
+6. assembly the camera
+7. boot and root
+
+### What do you need 
+
+- ch341a SPI programmer
+- linux system 
+
+### Steps
+
+#### disassembly the camera
+
+#### read the flashrom
+```
+sudo flashrom --programmer ch341a_spi -c "MX25L12835F/MX25L12845E/MX25L12865E" -r backup2.bin
+```
+
+#### modify the flashrom 
+
+#### write the flashrom
+
+#### test
+
+Allways test before you assembly the system
+
+
+#### assembly the camera
+
+#### boot and root
+
+
+
+## Device information
+
+cpu: [Star SSC 323](images/IMG_20210607_164115.jpg)
+
+Flash: [MX25L12833F](images/IMG_20210607_164201.jpg) [Datasheet](https://www.macronix.com/Lists/Datasheet/Attachments/7447/MX25L12833F,%203V,%20128Mb,%20v1.0.pdf)
+
+```
+# uname -a
+Linux mijia_camera 4.9.84 #3 PREEMPT Wed May 27 10:01:08 CST 2020 armv7l GNU/Linux
+```
+```
+# cat /proc/cpuinfo 
+processor       : 0
+model name      : ARMv7 Processor rev 5 (v7l)
+BogoMIPS        : 15.05
+Features        : half thumb fastmult vfp edsp thumbee neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm 
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant     : 0x0
+CPU part        : 0xc07
+CPU revision    : 5
+
+Hardware        : SStar Soc (Flattened Device Tree)
+Revision        : 0000
+Serial          : 0000000000000000
+```
+```
+# mount
+/dev/root on / type squashfs (ro,relatime)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=18776k,nr_inodes=4694,mode=755)
+proc on /proc type proc (rw,relatime)
+devpts on /dev/pts type devpts (rw,relatime,gid=5,mode=620,ptmxmode=666)
+tmpfs on /dev/shm type tmpfs (rw,relatime,mode=777)
+tmpfs on /tmp type tmpfs (rw,relatime)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,relatime,mode=755)
+sysfs on /sys type sysfs (rw,relatime)
+none on /sys/kernel/debug type debugfs (rw,relatime)
+/dev/mtdblock3 on /mnt/data type jffs2 (rw,relatime)
+devpts on /dev/pts type devpts (rw,relatime,gid=5,mode=620,ptmxmode=666)
+/dev/mmcblk0p1 on /mnt/sdcard type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+cloud on /tmp/cloud type tmpfs (rw,nosuid,nodev,noexec,noatime,nodiratime,size=1024k)
+
+```
+
+```
+# cat /proc/partitions 
+major minor  #blocks  name
+
+  31        0        320 mtdblock0
+  31        1       2048 mtdblock1
+  31        2       7552 mtdblock2
+  31        3       6336 mtdblock3
+  31        4         64 mtdblock4
+  31        5         64 mtdblock5
+ 179        0    7880704 mmcblk0
+ 179        1    7796736 mmcblk0p1
+```
+
+```
+# lsmod 
+Module                  Size  Used by    Tainted: P  
+exfat                  77142  0 
+mt7601Usta            903751  1 
+mtprealloc              2171  1 mt7601Usta
+drv_ms_cus_gc2053_MIPI_new     6671  0 
+cfg80211              175553  1 mt7601Usta
+mi_divp                41983  0 
+mi_venc               177429  0 
+mi_vif                 33979  0 
+mi_vpe                 80020  0 
+mi_ai                  69020  0 
+mi_rgn                 87853  2 mi_divp,mi_vpe
+mi_ao                  52293  0 
+mi_sensor              23016  0 
+mi_sys                418288  8 mi_divp,mi_venc,mi_vif,mi_vpe,mi_ai,mi_rgn,mi_ao,mi_sensor
+mi_common               8870  9 mi_divp,mi_venc,mi_vif,mi_vpe,mi_ai,mi_rgn,mi_ao,mi_sensor,mi_sys
+mhal                 1196195 10 drv_ms_cus_gc2053_MIPI_new,mi_divp,mi_venc,mi_vif,mi_vpe,mi_ai,mi_rgn,mi_ao,mi_sensor,mi_sys
+ms_notify               1342  0 
+sd_mod                 22065  0 
+usb_storage            39043  0 
+scsi_mod              101106  2 sd_mod,usb_storage
+ehci_hcd               34278  0 
+usbcore               131853  3 mt7601Usta,usb_storage,ehci_hcd
+usb_common              3756  1 usbcore
+vfat                    6827  1 
+fat                    43088  1 vfat
+kdrv_sdmmc             28472  0 
+mmc_block              20684  2 
+mmc_core               86396  2 kdrv_sdmmc,mmc_block
+nfsv2                  11056  0 
+nfs                   108706  1 nfsv2
+lockd                  39929  2 nfsv2,nfs
+sunrpc                175969  3 nfsv2,nfs,lockd
+grace                   2730  1 lockd
+nls_utf8                1457  0 
+cifs                  166591  0 
+```
