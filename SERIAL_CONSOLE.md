@@ -9,13 +9,13 @@ On the PCB are some test pads, in the area of the flash chip you can find the RX
 
 >> TODO: Picture Serial wires
 
-- open putty or miniterm and connect to a serial port of you USB tty stick  eg. /dev/ttyUSB0
+- open putty or miniterm and connect to a serial port of you USB tty stick  eg. /dev/ttyUSB0, ,speed: 115200
 - connect the 3 wires GND, RX and TX from the stick:
   - GND - GND 
   - TX  - RX 
   - RX  - TX
 
-- plug the USB wire into a 5V power supply or your notebook and see yout camera booting
+- plug the main power USB wire into a 5V power supply or your notebook and see the camera booting
 ```
 IPL g2cd6de2
 D-05
@@ -926,7 +926,7 @@ udhcpc: lease of 192.168.0.147 obtained, lease time 259200
 deleting routers
 adding dns 192.168.0.113
 get ip addr :
-192.168.0.147
+192.168.0.123
 
 
 test
