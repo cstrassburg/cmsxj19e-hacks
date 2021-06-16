@@ -71,8 +71,67 @@ SigmaStar #
 
 ```
 
-YEAH. You are on the uBoot console
+YEAH. You are on the uBoot console!
 
+If you type ``?`` and press ENTER, you get a command overview:
+
+```
+
+
+SigmaStar #
+SigmaStar # ?
+?       - alias for 'help'
+base    - print or set address offset
+bootm   - boot application image from memory
+bootp   - boot image via network using BOOTP/TFTP protocol
+cmp     - memory compare
+cp      - memory copy
+crc32   - checksum calculation
+dbg     - set debug message level. Default level is INFO
+dcache  - enable or disable data cache
+debug   - Disable uart rx via PAD_DDCA to use debug tool
+dhcp    - boot image via network using DHCP/TFTP protocol
+dstar   - script via SD/MMC
+eeprom  - EEPROM sub-system
+env     - environment handling commands
+estar   - script via network
+fatinfo - print information about filesystem
+fatload - load binary file from a dos filesystem
+fatls   - list files in a directory (default /)
+fatread - FAT fatread with FSTART
+fatsize - determine a file's size
+go      - start application at address 'addr'
+gpio    - Config gpio port
+help    - print command description/usage
+i2c     - I2C sub-system
+icache  - enable or disable instruction cache
+initDbgLevel- Initial varaible 'dbgLevel'
+loop    - infinite loop on address range
+md      - memory display
+mm      - memory modify (auto-incrementing address)
+mmc     - MMC sub system
+mmcinfo - display MMC info
+mssdmmc - Mstar SD/MMC IP Verification System
+mstar   - script via TFTP
+mw      - memory write (fill)
+mxp     - MXP function for Mstar MXP partition
+nm      - memory modify (constant address)
+ping    - send ICMP ECHO_REQUEST to network host
+printenv- print environment variables
+reset   - Perform RESET of the CPU
+riu     - riu  - riu command
+
+run     - run commands in an environment variable
+saveenv - save environment variables to persistent storage
+setenv  - set environment variables
+sf      - SPI flash sub-system
+sfbin   - for uploading sf image to a server(via network using TFTP protocol)
+srcfg   - sensor pin and mclk configuration.
+tftpboot- boot image via network using TFTP protocol
+version - print monitor, compiler and linker version
+
+
+```
 
 next step  FLASH ROM from SD-CARD
 
