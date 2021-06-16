@@ -13,7 +13,7 @@ If your cam is on this firmware look into "modifying firmware > 3.5.8_0165"
 - [install instructions](#install)
 - [next steps](#next-steps)
 - [device information](#device-information)
-- [serial connection](#serial-connection)
+- [serial connection](serial_console.md)
 - [modifying firmware > 3.5.8_0165](#firmware-hack)
 - [bootloader](#bootloader)
 - 
