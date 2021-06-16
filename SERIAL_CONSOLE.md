@@ -1,6 +1,6 @@
 # Serial console
 - [connecting serial console](#connecting-serial-console)
-- [interrupting boot sequence](#interrupting-boot-sequence) 
+- [interrupt boot process](#interrupt-boot-process) 
 
 
 
@@ -933,10 +933,12 @@ test
 ```
 if you can see what you write, your TX-> RX is working. If not, check the cable or solder points.
 
-## interrupting boot sequence
-If your console connect ist working you can interrupt the boot sequence:
+## interrupt boot process
 
-- unplug the power supply from the camera 
+If your console connect is working you can interrupt the boot sequence:
+
+- unplug the power supply from the camera
+- check the focus is on your putty or miniterm window 
 - hold the ENTER key down and power your camera up
 
 you can see: 
