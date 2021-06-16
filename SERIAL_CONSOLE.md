@@ -6,8 +6,7 @@
 
 ## connecting serial console
 On the PCB are some test pads, in the area of the flash chip you can find the RX, TX and GND pads.
-
->> TODO: Picture Serial wires
+![serial pins](images/Serial.jpg)
 
 - open putty or miniterm and connect to a serial port of you USB tty stick  eg. /dev/ttyUSB0, ,speed: 115200
 - connect the 3 wires GND, RX and TX from the stick:
