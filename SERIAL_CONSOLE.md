@@ -10,7 +10,7 @@ On the PCB are some test pads, in the area of the flash chip you can find the RX
 >> TODO: Picture Serial wires
 
 - open putty or miniterm and connect to a serial port of you USB tty stick  eg. /dev/ttyUSB0
-- conenct the 3 wires GND RX and TX from the stick:
+- connect the 3 wires GND, RX and TX from the stick:
   - GND - GND 
   - TX  - RX 
   - RX  - TX
