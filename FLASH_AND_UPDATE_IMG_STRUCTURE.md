@@ -28,4 +28,10 @@ The procedure that is carried out is:
 - delete the area from 0x000000050000 - 0x000000fe0000 in the flash chip
 - Copy the data from the RAM to the flash chip. 
 
+```
+sf probe
+fatload mmc 0 0x030000000 tf_update.img
+sf erase 0x50000 0xF90000
+sf write 0x030000000 0x50000 0xF90000
+```
 
