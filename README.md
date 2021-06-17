@@ -4,7 +4,13 @@
 
 Don't upgrade the camera to firmware 3.5.8_0166 !!! 
 
-On firmware 3.5.8_0166 Imilab changes the key and the bootloader, so you can not easy downgrade and this scripts are not working.
+On firmware 3.5.8_0166 Imilab changes the public key and the bootloader, so you can not easy downgrade and this scripts are not working.
+
+If you can get a telnet connection to the camera, great, you can do anything with that.Downgrade, patch RootFS, change DATA partition, backup the firmware... How, you can find out here
+
+If your camera does not open a telnet port, there are other ways to change it initially. I have meanwhile worked out several ways, which you can find here. One is to use the SPI programmer CH341a, the second is to use the serial console and a TTL adapter. Both require disassembling the camera. I am still working on a way without having to open the camera. If you have an idea, let me know. 
+
+These ways described here work not only for the Xiaomi imilab A1 but probably for all Xiaomi Imilab cameras as they are very similar. I can't test it though, as I don't have them.
 
 If your cam is on this firmware look into "modifying firmware > 3.5.8_0165"
 
