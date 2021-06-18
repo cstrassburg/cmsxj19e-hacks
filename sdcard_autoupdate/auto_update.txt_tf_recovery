@@ -1,0 +1,26 @@
+# Start auto_update.txt parsing
+
+# File Partition: set_partition
+sf probe 0
+fatload mmc 0 0x030000000 my_update.img
+sf erase 0x50000 0xF90000
+sf write 0x030000000 0x50000 0xF90000
+
+printenv
+#reset
+
+% <- this is end of script symbol
+
+fatload mmc 0 0x030000000 tf_update.img
+sf probe
+sf erase 0x50000 0xF90000
+sf write 0x030000000 0x50000 0xF90000
+reset
+
+
+# ROOTFS:
+sf probe 
+sf erase 0x250000 0x760000
+ fatload mmc 0 0x030000000 _rootfs.img
+sf write 0x030000000 0x250000 0x760000
+

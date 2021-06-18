@@ -1,0 +1,110 @@
+mxp t.list
+Total MXP record count:12
+[mxp_record]: 0
+     name: IPL
+     type: 0x01
+   format: 0x00
+   backup:
+    start: 0x00000000
+     size: 0x00010000
+   status: 0x00
+
+[mxp_record]: 1
+     name: IPL_CUST
+     type: 0x01
+   format: 0x00
+   backup:
+    start: 0x00010000
+     size: 0x0000F000
+   status: 0x00
+
+[mxp_record]: 2
+     name: KEY_CUST
+     type: 0x01
+   format: 0x00
+   backup:
+    start: 0x0001F000
+     size: 0x00001000
+   status: 0x00
+
+[mxp_record]: 3
+     name: MXPT
+     type: 0x01
+   format: 0x00
+   backup:
+    start: 0x00020000
+     size: 0x00001000
+   status: 0x00
+
+[mxp_record]: 4
+     name: UBOOT
+     type: 0x01
+   format: 0x00
+   backup:
+    start: 0x00030000
+     size: 0x0001F000
+   status: 0x00
+
+[mxp_record]: 5
+     name: UBOOT_ENV
+     type: 0x01
+   format: 0x00
+   backup:
+    start: 0x0004F000
+     size: 0x00001000
+   status: 0x00
+
+[mxp_record]: 6
+     name: BOOT
+     type: 0x03
+   format: 0x00
+   backup:
+    start: 0x00000000
+     size: 0x00050000
+   status: 0x00
+
+[mxp_record]: 7
+     name: KERNEL
+     type: 0x03
+   format: 0x00
+   backup:
+    start: 0x00050000
+     size: 0x00200000
+   status: 0x00
+
+[mxp_record]: 8
+     name: ROOTFS
+     type: 0x03
+   format: 0x00
+   backup:
+    start: 0x00250000
+     size: 0x00760000
+   status: 0x00
+
+[mxp_record]: 9
+     name: DATA
+     type: 0x03
+   format: 0x00
+   backup:
+    start: 0x009B0000
+     size: 0x00630000
+   status: 0x00
+
+[mxp_record]: 10
+     name: CONFIG
+     type: 0x03
+   format: 0x00
+   backup:
+    start: 0x00FE0000
+     size: 0x00010000
+   status: 0x00
+
+[mxp_record]: 11
+     name: FACTORY
+     type: 0x07
+   format: 0x00
+   backup:
+    start: 0x00FF0000
+     size: 0x00010000
+   status: 0x00
+
