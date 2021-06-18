@@ -16,7 +16,7 @@ If your cam is on this firmware look into "modifying firmware > 3.5.8_0165"
 
 
 - [supported devices](#supported-devices)
-- [install instructions](#install)
+- [How To](#how-to)
 - [next steps](#next-steps)
 - [device information](#device-information)
 - [serial connection](SERIAL_CONSOLE.md)
@@ -30,7 +30,34 @@ Model Name(s) | Picture
 cmsxj19e|![cmsxj19e](images/cmsxj19e.jpg)
 
 
-## Install
+## How To
+
+There are several ways to access this camera. 
+
+The first and easiest way is to copy the contents of the "sdcard" folder to a fat formatted SD card. This way only works up to firmware 3.5.8_0165, because in version 166 a key was changed and the check of the manu.bin file fails.
+This card is then put into the card slot of the camera and the camera is supplied with power. 
+
+If everything works, the script "manu_test/entrypoint.sh" is called and a Telnet server is started. Port 23
+
+1. copy the content of sdcard folder to a SD-Card, 
+2. insert the card into the cam and 
+3. power the camera on 
+4. telnet to the camera IP 
+- If you have configured the camera with Mi Home App, get the IP from the APP or your router
+- If you have never connect the camera to the Mi Home App, 
+  - Connect to the open AP with an notebook. You get an IP from the camera (192.168.14.10)
+  - Telnet to 192.168.14.1 
+6. login as "root", password "" 
+You are root!
+
+
+For the second and third way, the camera must be disassembled. How to do this is described here. [Instructions](DISASSEMBLE_CAMERA.md) 
+
+Now you need a UART USB converter, such as the pl2303 converter or an SPI programmer, such as the ch341a.
+
+
+
+- 
 
 ### With Mi Home App
 
@@ -51,8 +78,6 @@ You can use a new camera or one after a reset.
 2. Insert the card into the camera
 3. Power the camera on. 
 4. Wait until a voice speak to you
-5. Connect to the open AP with an notebook. You get an IP from the camera (192.168.14.10)
-6. Telnet to 192.168.14.1 
 
 You are root!
 
