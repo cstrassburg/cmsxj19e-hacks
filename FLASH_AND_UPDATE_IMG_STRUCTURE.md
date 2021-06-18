@@ -2,10 +2,10 @@
 
 The files tf_recovery.img or tf_update.img have the following structure.
 ```
-0x000000-0x200000 : "KERNEL"
-0x200000-0x960000 : "ROOTFS"
-0x960000-0xf90000 : "DATA"
-0xf90000-0xf90050 : "SIGNATURE"
+0x000000-0x200000 : "KERNEL"      : size: 0x200000
+0x200000-0x960000 : "ROOTFS"      : size: 0x760000
+0x960000-0xf90000 : "DATA"        : size: 0x630000
+0xf90000-0xf90050 : "SIGNATURE"   : size: 0x50
 ```
 
 The flashrom of the camera has 16 MB and has the following structure.
