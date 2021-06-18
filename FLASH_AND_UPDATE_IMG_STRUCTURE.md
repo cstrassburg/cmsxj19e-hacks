@@ -40,4 +40,4 @@ With this commands you can update every partition of the flash chip, without a s
 You only have to adjust the addresses in the memory.
 
 If you are going to hack the camera, you can use the scripts I have prepared.
-You should be able to change the ROOTFS, use a programmer or a TTL serial stick to see what works. 
+You should be able to change the ROOTFS, use a programmer or a USB to UART adapterk to see what works. 
