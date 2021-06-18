@@ -1,5 +1,9 @@
 #!/bin/sh
 echo "Xiaomi Hacks enabled" > /mnt/sdcard/hacks.log
+
+if [ -f "/tmp/factory_mode" ]; then
+  rm -f /tmp/factory_mode
+fi  
 if [ -f "/tmp/.factory_lock" ]; then
   rm -f /tmp/.factory_lock
 fi 
